@@ -1,7 +1,7 @@
 {
   "name": "frep",
   "description": "A find and replace utility. Modify strings by passing an array of RegExp or string replacement patterns",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/helpers/frep",
   "author": {
     "name": "Jon Schlinkert",
@@ -20,7 +20,7 @@
       "url": "https://github.com/helpers/frep/blob/master/LICENSE-MIT"
     }
   ],
-  "main": "Gruntfile.js",
+  "main": "frep.js",
   "engines": {
     "node": ">= 0.8.0"
   },
