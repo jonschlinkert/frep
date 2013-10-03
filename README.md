@@ -12,20 +12,33 @@ npm i frep --save
 ```js
 var frep = require('frep');
 
-frep.replaceStr(String, ArrayOfPatterns));
-frep.replaceArray(ArrayOfStrings, ArrayOfPatterns));
+// Transform a string with an array of replacement patterns
+frep.strWithArr(String, replacements);
+// Transform an array of strings with an array of replacement patterns
+frep.arrWithArr(Array,  replacements);
+// Transform a string with an object of replacement patterns
+frep.strWithObj(String, replacements);
+// Transform an array of strings with an object of replacement patterns
+frep.arrWithObj(Array,  replacements);
 ```
+
+
 
 ## Methods
 
-### replaceStr
+### strWithArr
+Transform a string with an array of replacement patterns.
 
-`replaceStr(String, Array)`
+```js
+frep.strWithArr(String, Array)
+```
 
 Parameters:
 
 * `String`: The string to modify with the given replacement patterns.
 * `Array`: Array of objects containing the replacement patterns, each including a `pattern` property (which can be a string or a RegExp), and a `replacement` property (which can be a string or a function to be called for each match).
+* A new string is returned with some or all matches replaced by the given replacement patterns.
+
 
 Given the following:
 
@@ -45,23 +58,23 @@ var patterns = [
   ...
 ];
 
-frep.replaceStr(str, patterns));
+frep.strWithArr(str, patterns));
+// => #########DEFGHIJKLMNOPQRSTUVW$$$$$$$$$
 ```
 
-A new string is returned with some or all matches replaced by the given replacement strings.
 
+### arrWithArr
+Transform an array of strings with an array of replacement patterns
+
+```js
+frep.arrWithArr(Array, Array)
 ```
-#########DEFGHIJKLMNOPQRSTUVW$$$$$$$$$
-```
-
-### replaceArray
-
-`replaceArray(Array, Array)`
 
 Parameters:
 
 * `Array`: The string to modify with the given replacement patterns.
 * `Array`: Same as `replacStr`, this is an an array of objects containing the replacement patterns, each including a `pattern` property, which can be a string or a RegExp, and a `replacement` property, which can be a string or a function to be called for each match.
+* A new array of strings is returned with some or all matches replaced by the given replacement patterns.
 
 Given the following:
 
@@ -84,13 +97,79 @@ var patterns = [
   ...
 ];
 
-frep.replaceArray(arr, patterns));
+frep.arrWithArr(arr, patterns));
+// => ["$$$on ###chlinkert", "###rian $$$oodward"]
 ```
 
 An array of new strings is returned, with some or all matches in each string replaced by the given replacement strings.
 
-```json
-["$$$on ###chlinkert", "###rian $$$oodward"]
+
+
+### strWithObj
+Transform a string with an object of replacement patterns
+
+```js
+frep.strWithObj(String, Object)
+```
+
+Parameters:
+
+* `String`: The string to modify with the given replacement patterns.
+* `Object`: Object of replacement patterns, where each key is a string or a RegExp `pattern`, and each value is the `replacement` string or function to be called for each match.
+* A new string is returned with some or all matches replaced by the given replacement patterns.
+
+
+Given the following:
+
+```js
+var frep = require('frep');
+
+var str = 'ABC'
+var replacements = {
+  'A': 'AAA',
+  'B': 'BBB',
+  'C': 'CCC',
+  'D': 'DDD',
+  'E': 'EEE',
+  'F': 'FFF'
+};
+
+frep.strWithObj(str, replacements));
+// => AAABBBCCC
+```
+
+
+### arrWithObj
+Transform an array of strings with an object of replacement patterns
+
+```js
+frep.arrWithObj(Array, Object)
+```
+
+Parameters:
+
+* `Array`: The array of strings to modify with the given replacement patterns.
+* `Object`: Object of replacement patterns, where each key is a string or a RegExp `pattern`, and each value is the `replacement` string or function to be called for each match.
+* A new array of strings is returned with some or all matches replaced by the given replacement patterns.
+
+
+Given the following:
+
+```js
+var frep = require('frep');
+
+var arr = ['ABC', 'DEF'];
+var replacements = {
+  'A': 'AAA',
+  'B': 'BBB',
+  'C': 'CCC',
+  'D': 'DDD',
+  'E': 'EEE',
+  'F': 'FFF'
+};
+
+frep.arrWithObj(arr, replacements));
+// => ['AAABBBCCC', 'DDDEEEFFF']
 ```
 
 
