@@ -1,7 +1,7 @@
 {
   "name": "frep",
-  "description": "A find and replace utility. Modify strings by passing an array of RegExp or string replacement patterns",
-  "version": "0.1.1",
+  "description": "A find and replace utility. Modify strings by passing an array or object of RegExp or string replacement patterns",
+  "version": "0.1.2",
   "homepage": "https://github.com/helpers/frep",
   "author": {
     "name": "Jon Schlinkert",
@@ -26,11 +26,20 @@
   },
   "keywords": [
     "find replace",
+    "find",
+    "javascript regex match",
+    "javascript regex replace",
+    "javascript regular expression",
+    "js regex replace",
+    "js regex",
+    "pattern",
+    "regex javascript",
+    "regex replace",
     "regex",
     "regexp",
     "regular expressions",
-    "replacements",
+    "replace",
     "replacement patterns",
-    "pattern"
+    "replacements"
   ]
 }
