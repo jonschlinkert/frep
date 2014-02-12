@@ -48,11 +48,11 @@ var frep = require('frep');
 var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 var patterns = [
   {
-    pattern: /(A|B|C)/g,
+    pattern: /[ABC]/g,
     replacement: '###'
   },
   {
-    pattern: /(X|Y|Z)/g,
+    pattern: /[XYZ]/g,
     replacement: '$$$'
   },
   ...
@@ -222,14 +222,10 @@ var patterns = [
   }
 ];
 
-// Our "structure", which determines where the
-// values from each property will be placed.
-var str = ':foo/:bar/:baz';
-
-
-// Frep will now process each of the replacement
-// patterns in sequence.
-console.log(frep.strWithArr(str, patterns));
+// The first argument, a string, will be our "structure",
+// which will determine where the values from each property
+// will be placed. Run frep to see what happens!
+console.log(frep.strWithArr(':foo/:bar/:baz', patterns));
 ```
 
 

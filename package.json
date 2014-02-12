@@ -1,23 +1,23 @@
 {
   "name": "frep",
   "description": "A find and replace utility. Modify strings by passing an array or object of RegExp or string replacement patterns",
-  "version": "0.1.4",
-  "homepage": "https://github.com/helpers/frep",
+  "version": "0.1.5",
+  "homepage": "https://github.com/jonschlinkert/frep",
   "author": {
     "name": "Jon Schlinkert",
     "url": "https://github.com/jonschlinkert"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/helpers/frep.git"
+    "url": "https://github.com/jonschlinkert/frep.git"
   },
   "bugs": {
-    "url": "https://github.com/helpers/frep/issues"
+    "url": "https://github.com/jonschlinkert/frep/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/helpers/frep/blob/master/LICENSE-MIT"
+      "url": "https://github.com/jonschlinkert/frep/blob/master/LICENSE-MIT"
     }
   ],
   "main": "frep.js",
@@ -25,11 +25,14 @@
     "node": ">= 0.8.0"
   },
   "keywords": [
+    "find and replace",
     "find replace",
     "find",
+    "javascript find replace",
     "javascript regex match",
     "javascript regex replace",
     "javascript regular expression",
+    "js find replace",
     "js regex replace",
     "js regex",
     "pattern",
@@ -41,5 +44,11 @@
     "replace",
     "replacement patterns",
     "replacements"
-  ]
+  ],
+  "devDependencies": {
+    "chai": "~1.9.0",
+    "mocha": "~1.17.1",
+    "lodash": "~2.4.1",
+    "underscore.string": "~2.3.3"
+  }
 }
