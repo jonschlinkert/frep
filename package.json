@@ -1,7 +1,7 @@
 {
   "name": "frep",
   "description": "A find and replace utility. Modify strings by passing an array or object of RegExp or string replacement patterns",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "homepage": "https://github.com/helpers/frep",
   "author": {
     "name": "Jon Schlinkert",
