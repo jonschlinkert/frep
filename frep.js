@@ -1,13 +1,13 @@
 /**!
- * frep
- * http://github.com/helpers/frep
- * Copyright (c) 2013, Jon Schlinkert, contributors
+ * frep <http://github.com/jonsclhinkert/frep>
+ * Copyright (c) 2014, Jon Schlinkert, contributors
  * Licensed under the MIT license.
  */
 
 'use strict';
 
 var path = require('path');
+var utils = require('./lib/utils');
 
 
 var patternArray = function(str, patterns) {
@@ -27,6 +27,8 @@ var patternArray = function(str, patterns) {
  */
 function strWithArr(str, replacements) {
   return patternArray(str, replacements.map(function(match) {
+    var flags = replacements.flags? replacements.flags : 'g';
+    match.pattern = utils.buildRegexGroup(match.pattern, flags);
     return [match.pattern, match.replacement];
   }));
 };

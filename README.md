@@ -26,7 +26,7 @@ frep.arrWithObj(Array,  replacements);
 
 ## Methods
 
-### strWithArr
+### .strWithArr( string, array )
 Transform a string with an array of replacement patterns.
 
 ```js
@@ -39,12 +39,11 @@ Parameters:
 * `Array`: Array of objects containing the replacement patterns, each including a `pattern` property (which can be a string or a RegExp), and a `replacement` property (which can be a string or a function to be called for each match).
 * A new string is returned with some or all matches replaced by the given replacement patterns.
 
+**Example 1**
 
 Given the following:
 
 ```js
-var frep = require('frep');
-
 var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 var patterns = [
   {
@@ -62,12 +61,43 @@ frep.strWithArr(str, patterns));
 // => #########DEFGHIJKLMNOPQRSTUVW$$$$$$$$$
 ```
 
+### patterns as arrays
 
-### arrWithArr
+Patterns may also be arrays. When replacement patterns are formatted as arrays Frep will first transform the array into a corresponding RegExp group:
+
+**Example 2**
+
+```js
+['[ABC]', '[XYZ]']
+```
+gets converted to:
+
+```js
+ /([ABC]|[XYZ])/gi
+ ```
+
+**Example 3**
+
+So the following will produce a similar result to **Example 1**, except `###` is used to replace all patterns:
+
+```js
+var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+var patterns = [
+  {
+    pattern: ['[ABC]', '[XYZ]'],
+    replacement: '###'
+  }
+];
+
+frep.strWithArr(str, patterns));
+// => #########DEFGHIJKLMNOPQRSTUVW#########
+```
+
+### .arrWithArr( array, array )
 Transform an array of strings with an array of replacement patterns
 
 ```js
-frep.arrWithArr(Array, Array)
+frep.arrWithArr( Array, Array )
 ```
 
 Parameters:
@@ -78,9 +108,9 @@ Parameters:
 
 Given the following:
 
-```js
-var frep = require('frep');
+**Example 4**
 
+```js
 var arr = [
   'Jon Schlinkert',
   'Brian Woodward'
@@ -105,11 +135,11 @@ An array of new strings is returned, with some or all matches in each string rep
 
 
 
-### strWithObj
+### .strWithObj( string, object )
 Transform a string with an object of replacement patterns
 
 ```js
-frep.strWithObj(String, Object)
+frep.strWithObj( String, Object )
 ```
 
 Parameters:
@@ -118,12 +148,11 @@ Parameters:
 * `Object`: Object of replacement patterns, where each key is a string or a RegExp `pattern`, and each value is the `replacement` string or function to be called for each match.
 * A new string is returned with some or all matches replaced by the given replacement patterns.
 
+**Example 5**
 
 Given the following:
 
 ```js
-var frep = require('frep');
-
 var str = 'ABC'
 var replacements = {
   'A': 'AAA',
@@ -139,7 +168,7 @@ frep.strWithObj(str, replacements));
 ```
 
 
-### arrWithObj
+### .arrWithObj( array, object )
 Transform an array of strings with an object of replacement patterns
 
 ```js
@@ -152,12 +181,11 @@ Parameters:
 * `Object`: Object of replacement patterns, where each key is a string or a RegExp `pattern`, and each value is the `replacement` string or function to be called for each match.
 * A new array of strings is returned with some or all matches replaced by the given replacement patterns.
 
+**Example 6**
 
 Given the following:
 
 ```js
-var frep = require('frep');
-
 var arr = ['ABC', 'DEF'];
 var replacements = {
   'A': 'AAA',
@@ -172,8 +200,9 @@ frep.arrWithObj(arr, replacements));
 // => ['AAABBBCCC', 'DDDEEEFFF']
 ```
 
-
 ## Usage example
+
+### Uses frep.strWithArray( string, array )
 
 > Slugify URL segments using frep
 
@@ -231,16 +260,12 @@ console.log(frep.strWithArr(':foo/:bar/:baz', patterns));
 
 ## Author
 
+**[Jon Schlinkert](http://github/jonschlinkert)**
+
 + [github/jonschlinkert](http://github/jonschlinkert)
 + [twitter/jonschlinkert](http://twitter.com/jonschlinkert)
 
 
 ## License
-Copyright (c) 2013 Jon Schlinkert
+Copyright (c) 2014 [Jon Schlinkert](http://github/jonschlinkert), contributors.
 Licensed under the [MIT license](LICENSE-MIT).
-
-***
-
-Project created by [Jon Schlinkert](https://github.com/jonschlinkert).
-
-_This file was generated on Wed Sep 18 2013 00:03:54._
