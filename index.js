@@ -4,10 +4,7 @@
  * Licensed under the MIT license.
  */
 
-'use strict';
-
-var path = require('path');
-var utils = require('./lib/utils');
+const utils = require('./lib/utils');
 
 
 var patternArray = function(str, patterns) {
