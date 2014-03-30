@@ -5,14 +5,15 @@
  */
 
 const utils = require('./lib/utils');
+const replace = module.exports = {};
 
 
-var patternArray = function(str, patterns) {
+
+replace.patternArray = function(str, patterns) {
   return patterns.reduce(function(content, pairings) {
     return content.replace(pairings[0], pairings[1]);
   }, str);
 };
-
 
 
 /**
@@ -22,10 +23,13 @@ var patternArray = function(str, patterns) {
  * @param  {Array}  replacements Array of replacement patterns.
  * @return {String}              The new string.
  */
-function strWithArr(str, replacements) {
-  return patternArray(str, replacements.map(function(match) {
-    var flags = replacements.flags? replacements.flags : 'g';
-    match.pattern = utils.buildRegexGroup(match.pattern, flags);
+
+replace.strWithArr = function(str, replacements) {
+  return replace.patternArray(str, replacements.map(function(match) {
+    if (match.auto) {
+      var flags = match.flags ? match.flags : 'g';
+      match.pattern = utils.buildRegexGroup(match.pattern, flags);
+    }
     return [match.pattern, match.replacement];
   }));
 };
@@ -38,10 +42,11 @@ function strWithArr(str, replacements) {
  * @param  {Array}  replacements Array of replacement patterns.
  * @return {String}              The new string.
  */
-function arrWithArr(arr, replacements) {
+
+replace.arrWithArr = function(arr, replacements) {
   return arr.map(function(match) {
-    return strWithArr(match, replacements);
-  })
+    return replace.strWithArr(match, replacements);
+  });
 };
 
 
@@ -52,7 +57,8 @@ function arrWithArr(arr, replacements) {
  * @param  {Object} patterns  Array of replacement patterns.
  * @return {String}           The new string.
  */
-function strWithObj(str, replacements) {
+
+replace.strWithObj = function(str, replacements) {
   var re = new RegExp(Object.keys(replacements).join('|'), 'gi');
   return str.replace(re, function(match) {
     return replacements[match];
@@ -67,22 +73,16 @@ function strWithObj(str, replacements) {
  * @param  {Array}  replacements Array of replacement patterns.
  * @return {String}              The new string.
  */
-function arrWithObj(arr, replacements) {
+
+replace.arrWithObj = function(arr, replacements) {
   return arr.map(function(match) {
-    return strWithObj(match, replacements);
-  })
+    return replace.strWithObj(match, replacements);
+  });
 };
 
 
-module.exports = {
-  strWithArr: strWithArr,
-  arrWithArr: arrWithArr,
-  strWithObj: strWithObj,
-  arrWithObj: arrWithObj,
-
-  // Aliases
-  replaceStr: strWithArr,
-  replaceArr: arrWithArr,
-  replaceObj: strWithObj,
-  replaceObjArr: arrWithObj
-};
+// Aliases
+replace.replaceStr = replace.strWithArr;
+replace.replaceArr = replace.arrWithArr;
+replace.replaceObj = replace.strWithObj;
+replace.replaceObjArr = replace.arrWithObj;
