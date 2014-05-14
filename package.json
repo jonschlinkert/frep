@@ -1,7 +1,7 @@
 {
   "name": "frep",
-  "description": "A find and replace utility. Modify strings by passing an array or object of RegExp or string replacement patterns",
-  "version": "0.2.0",
+  "description": "Find, replace and string tranformation utility for node.js. Modify strings by passing an array or object of RegExp or string replacement patterns. Patterns can be strings, arrays of strings or regex, replacements can be strings or functions.",
+  "version": "0.2.1",
   "homepage": "https://github.com/jonschlinkert/frep",
   "author": {
     "name": "Jon Schlinkert",
@@ -25,32 +25,44 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "test": "mocha -R test"
+    "test": "mocha -R spec"
   },
   "keywords": [
-    "find",
-    "and",
-    "replace",
-    "javascript",
-    "regex",
-    "match",
-    "regular",
     "expression",
-    "js",
-    "pattern",
-    "regexp",
     "expressions",
-    "replacement",
+    "find",
+    "format",
+    "match",
+    "matches",
+    "modify",
+    "pattern",
     "patterns",
-    "replacements"
+    "regex",
+    "regexp",
+    "regular",
+    "replace",
+    "replaced",
+    "replacement",
+    "replacements",
+    "search",
+    "sluggifier",
+    "slugification",
+    "slugified",
+    "slugify",
+    "string",
+    "strings",
+    "structure",
+    "substitute",
+    "tranformation",
+    "transform",
+    "underscore",
+    "url",
+    "utility"
   ],
-  "dependencies": {
-    "lodash": "~2.4.1"
-  },
   "devDependencies": {
-    "underscore.string": "~2.3.3",
-    "chai": "~1.9.0",
-    "mocha": "~1.17.1",
-    "verb": "~0.1.20"
+    "chai": "^1.9.1",
+    "mocha": "^1.18.2",
+    "underscore.string": "^2.3.3",
+    "verb": "^0.2.7"
   }
 }

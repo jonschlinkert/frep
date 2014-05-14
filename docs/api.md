@@ -1,9 +1,16 @@
+```js
+// Transform a string with an array of replacement patterns
+replace.strWithArr(String, replacements);
+// Transform an array of strings with an array of replacement patterns
+replace.arrWithArr(Array,  replacements);
+// Transform a string with an object of replacement patterns
+replace.strWithObj(String, replacements);
+// Transform an array of strings with an object of replacement patterns
+replace.arrWithObj(Array,  replacements);
+```
+
 ## .strWithArr( string, array )
 Transform a string with an array of replacement patterns.
-
-```js
-replace.strWithArr(String, Array)
-```
 
 Parameters:
 
@@ -34,7 +41,6 @@ replace.strWithArr(str, patterns));
 ```
 
 ## patterns as arrays
-
 Patterns may also be arrays. When replacement patterns are formatted as arrays Frep will first transform the array into a corresponding RegExp group:
 
 **Example 2**
@@ -67,10 +73,6 @@ replace.strWithArr(str, patterns));
 
 ## .arrWithArr( array, array )
 Transform an array of strings with an array of replacement patterns
-
-```js
-replace.arrWithArr( Array, Array )
-```
 
 Parameters:
 
@@ -111,10 +113,6 @@ An array of new strings is returned, with some or all matches in each string rep
 ## .strWithObj( string, object )
 Transform a string with an object of replacement patterns
 
-```js
-replace.strWithObj( String, Object )
-```
-
 Parameters:
 
 * `String`: The string to modify with the given replacement patterns.
@@ -143,10 +141,6 @@ replace.strWithObj(str, replacements));
 
 ## .arrWithObj( array, object )
 Transform an array of strings with an object of replacement patterns
-
-```js
-replace.arrWithObj(Array, Object)
-```
 
 Parameters:
 
