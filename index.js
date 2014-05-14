@@ -59,7 +59,7 @@ replace.arrWithArr = function(arr, replacements) {
  */
 
 replace.strWithObj = function(str, replacements) {
-  var re = new RegExp(Object.keys(replacements).join('|'), 'gi');
+  var re = new RegExp(Object.keys(replacements).join('|'), 'g');
   return str.replace(re, function(match) {
     return replacements[match];
   });
