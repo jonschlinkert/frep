@@ -1,19 +1,11 @@
 const expect = require('chai').expect;
-const frep = require('../');
 const _str = require('underscore.string');
-const _   = require('lodash');
-
-/**
- * This is the example from the README.
- * Here it is setup as a Mocha test.
- */
-
-
-// We'll use underscore string's slugify function for the first example
+const frep = require('../');
 
 
 /**
- * Setup
+ * This is the example from the README
+ * setup as a mocha test
  */
 
 // A custom slugification function for the second
@@ -41,7 +33,7 @@ var obj = {
 var patterns = [
   {
     pattern: /:foo/g,
-    replacement: _str.slugify(obj.foo) // underscore.string
+    replacement: _str.slugify(obj.foo) // underscore string's slugify function
   },
   {
     pattern: /:bar/g,

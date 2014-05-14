@@ -1,8 +1,6 @@
 const path = require('path');
 const expect = require('chai').expect;
 const frep = require('../');
-const _str = require('underscore.string');
-const _   = require('lodash');
 
 
 // Setup
@@ -38,8 +36,7 @@ describe('when a string with multiple potential matches is passed in', function 
     ];
 
     var actual = frep.strWithArr(template, replacements);
-    var expected = 'somefile';
-    expect(actual).to.eql(expected);
+    expect(actual).to.eql('somefile');
   });
 });
 
@@ -62,8 +59,7 @@ describe('when a string with multiple potential matches is passed in', function 
       }
     ];
     var actual = frep.strWithArr(template, replacements);
-    var expected = 'C:/foo/bar/baz/:dir';
-    expect(actual).to.eql(expected);
+    expect(actual).to.eql('C:/foo/bar/baz/:dir');
   });
 });
 
@@ -71,8 +67,7 @@ describe('frep', function () {
   it('should replace "foo" with "SUCCESS".', function () {
     var replacements = [{pattern: /:foo/g, replacement: 'SUCCESS'}];
     var actual = frep.strWithArr(':foo/:bar/:baz', replacements);
-    var expected = 'SUCCESS/:bar/:baz';
-    expect(actual).to.eql(expected);
+    expect(actual).to.eql('SUCCESS/:bar/:baz');
   });
 
   it('should replace the given strings with the given replacements.', function () {
