@@ -7,10 +7,10 @@ const frep = require('../');
 describe('when a string is passed as a replacement pattern', function () {
   it('should replace the first match.', function () {
 
-    var template = 'a<comment><![CDATA[inner]]></comment>b';
+    var template = 'a[a+]b';
     var replacements = [
       {
-        pattern: '<comment><![CDATA[inner]]></comment>',
+        pattern: '[a+]',
         replacement: ''
       }
     ];
