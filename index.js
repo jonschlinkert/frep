@@ -4,17 +4,14 @@
  * Licensed under the MIT license.
  */
 
-const utils = require('./lib/utils');
-const replace = module.exports = {};
+'use strict';
+
+var utils = require('./lib/utils');
+var replacements = require('replacements');
+var replace = module.exports = {};
 
 
-
-replace.patternArray = function(str, patterns) {
-  return patterns.reduce(function(content, pairings) {
-    return content.replace(pairings[0], pairings[1]);
-  }, str);
-};
-
+replace.patternArray = replacements;
 
 /**
  * Transform a string with an array of RegExp or
@@ -30,7 +27,7 @@ replace.strWithArr = function(str, replacements) {
       var flags = match.flags ? match.flags : 'g';
       match.pattern = utils.buildRegexGroup(match.pattern, flags);
     }
-    return [match.pattern, match.replacement];
+    return match;
   }));
 };
 

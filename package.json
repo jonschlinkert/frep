@@ -1,7 +1,7 @@
 {
   "name": "frep",
-  "description": "Find, replace and string tranformation utility for node.js. Modify strings by passing an array or object of RegExp or string replacement patterns. Patterns can be strings, arrays of strings or regex, replacements can be strings or functions.",
-  "version": "0.2.2",
+  "description": "Find and replace utility for node.js. Transform strings by running multiple RegExp or string find-and-replace patterns on a string in sequence, reducing the final string to the accumulated result of each transformation. Patterns can be strings (or arrays of strings) or regular expressions. Replacements can be strings or functions.",
+  "version": "0.2.3",
   "homepage": "https://github.com/jonschlinkert/frep",
   "author": {
     "name": "Jon Schlinkert",
@@ -64,5 +64,8 @@
     "mocha": "^1.18.2",
     "underscore.string": "^2.3.3",
     "verb": "^0.2.7"
+  },
+  "dependencies": {
+    "replacements": "^0.1.1"
   }
 }
