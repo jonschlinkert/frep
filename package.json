@@ -62,7 +62,7 @@
   "devDependencies": {
     "chai": "^1.9.1",
     "mocha": "^1.18.2",
-    "underscore.string": "^2.3.3",
+    "underscore.string": "^3.3.5",
     "verb": "^0.2.7"
   },
   "dependencies": {
